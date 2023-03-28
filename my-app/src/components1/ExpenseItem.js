@@ -1,15 +1,33 @@
+import React ,{useState} from 'react';
 import './ExpenseItem.css'
 import Card from './Card';
 
-function expanseitem(props){
-    const locationfirst="Rs 10";
-    const locationsecond="Rs 100";
-    const locationthird="Rs 200";
+function ExpanseItem(props){
+  const [title, setTitle] = useState(props.title);
+  const [amount,setAmount]=useState(props.amount);
+  const edithandler=()=>{
+    setAmount("$100");//it is for updating amount//
+    console.log(amount);
+
+    setTitle('updated!')// it is for upadating title//
+        console.log(title); 
+  }
+  
+  
+    
     
     const clickHandler=(event)=>{
-      event.target.parentNode.remove()//this line means event target to remove parentnode //
+       event.target.parentNode.remove()//this line means event target to remove parentnode //
+
+
+      // title='Updated'  this is beacuse this is react rule//
+      // console.log(title)
         
-        console.log("click me");
+        // console.log("click me");
+
+         
+
+       
     }
 
     return(
@@ -22,10 +40,11 @@ function expanseitem(props){
             <div>
         <h1 className='location'>locationofexpenditure </h1>
         <ul className='ul'>
-        <li className='lo1'> food :{locationfirst} {props.title}:{props.amount}</li>
-        <li className='lo2'> petrol:{locationsecond} {props.amount}</li>
-        <li className='lo3'>Movies:{locationthird}  </li>
+        <li className='lo1'> food : {title}:{amount}</li>
+        <li className='lo2'> petrol: {amount}</li>
+        <li className='lo3'>Movies:{amount}  </li>
         <button className='butto' onClick={clickHandler}>DeleteExpense</button>
+        <button className="butto1" onClick={edithandler}>EditExpense</button>
         
         </ul>
         </div> 
@@ -36,4 +55,4 @@ function expanseitem(props){
     );
 
 }
-export default expanseitem;
+export default ExpanseItem;
