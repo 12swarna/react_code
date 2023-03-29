@@ -1,10 +1,24 @@
-import React from 'react';
+import React ,{useState} from 'react';
+
 import './ExpensesForm.css';
 
 
 const Expenseform=()=>{
+    const[entertitle,setitle]=useState("");
+    const[enteramount,setamount]=useState("");
+    const[enterdate,setdate]=useState("");
+
     const titlehandler=(event)=>{
-        console.log(event.target.value);
+        setitle(event.target.value);
+        console.log(entertitle);
+    }
+    const Amounthandler=(event)=>{
+        setamount(event.target.value);
+        console.log(enteramount)
+    }
+    const Datehandler=(event)=>{
+        setdate(event.target.value);
+        console.log(enterdate);
     }
    
     
@@ -19,12 +33,12 @@ const Expenseform=()=>{
 
             <div className='amount'>
             <label>AMOUNT</label>
-            <input type="number" onChange={titlehandler}/>
+            <input type="number" onChange={Amounthandler}/>
           
             </div>
             <div className='date'> 
                 <label>DATE</label>
-                <input type="date" onChange={titlehandler}/>
+                <input type="date" onChange={Datehandler}/>
             </div>
             <div className='button'> 
             <button >SUBMIT IT</button>
