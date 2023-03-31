@@ -2,6 +2,7 @@ import React ,{useState} from 'react';
 import './ExpenseItem.css'
 import Card from './Card';
 
+
 function ExpanseItem(props){
   const [title, setTitle] = useState(props.title);
   const [amount,setAmount]=useState(props.amount);
@@ -31,6 +32,7 @@ function ExpanseItem(props){
     }
 
     return(
+        <>
         <Card>
             <div>
         <h1 className='expanse'>Expanse items!</h1>
@@ -43,14 +45,19 @@ function ExpanseItem(props){
         <li className='lo1'> food : {title}:{amount}</li>
         <li className='lo2'> petrol: {amount}</li>
         <li className='lo3'>Movies:{amount}  </li>
+        
         <button className='butto' onClick={clickHandler}>DeleteExpense</button>
         <button className="butto1" onClick={edithandler}>EditExpense</button>
         
         </ul>
         </div> 
         </div>
+        
 
         </Card>
+        
+        </>
+       
 
     );
 

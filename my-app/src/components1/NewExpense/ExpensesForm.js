@@ -2,29 +2,81 @@ import React ,{useState} from 'react';
 
 import './ExpensesForm.css';
 
-
+//this is for submitting form details on console.//
 const Expenseform=()=>{
+    const submitHandler=(event)=>{
+        event.preventDefault();
+        const Details={
+            title:entertitle,
+            amount:enteramount,
+            date: new Date(enterdate)
+
+        }
+        console.log(Details.title);
+        console.log(Details.amount);
+        console.log(Details.date);
+
+       
+
+    }
+
+   
+    //this is multiusestates but now we change in single use states //
     const[entertitle,setitle]=useState("");
     const[enteramount,setamount]=useState("");
     const[enterdate,setdate]=useState("");
 
+    //singel usestes usses in object form//
+    // const [userInput,setInputUser]=useState({
+    //     entertitle:'',
+    //     enteramount:'',
+    //     enterdate:''
+
+    // });
+
     const titlehandler=(event)=>{
         setitle(event.target.value);
-        console.log(entertitle);
+        // console.log(entertitle);
+
+
+        // setInputUser({
+        //     ...userInput,
+        //     entertitle:event.target.value,
+            
+        // })
+        
     }
     const Amounthandler=(event)=>{
         setamount(event.target.value);
-        console.log(enteramount)
+        // console.log(enteramount)
+
+
+        // setInputUser({
+        //     ...userInput,
+        //     enteramount:event.target.value,
+
+        // });
+
+        //new way to update//
+        // setInputUser((prevstate)=>{
+        //     return {...prevstate,entertitle:event.target.value};
+
+        // });
     }
     const Datehandler=(event)=>{
         setdate(event.target.value);
-        console.log(enterdate);
+        // console.log(enterdate);
+
+        // setInputUser({
+        //     ...userInput,
+        //     enterdate:event.target.value,
+        // })
     }
    
     
     
     return(
-        <form className='firstform'>
+        <form className='firstform' onSubmit={submitHandler}>
             <div className='form'>
             <div className='title'>
             <label >TITLE</label>
@@ -43,7 +95,7 @@ const Expenseform=()=>{
             <div className='button'> 
             <button >SUBMIT IT</button>
             </div>
-            
+           
             
             </div>
         </form>
