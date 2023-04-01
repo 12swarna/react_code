@@ -3,7 +3,15 @@ import React ,{useState} from 'react';
 import './ExpensesForm.css';
 
 //this is for submitting form details on console.//
-const Expenseform=()=>{
+const Expenseform=(props)=>{
+
+    //this is multiusestates but now we change in single use states //
+    const[entertitle,setitle]=useState("");
+    const[enteramount,setamount]=useState("");
+    const[enterdate,setdate]=useState("");
+
+
+
     const submitHandler=(event)=>{
         event.preventDefault();
         const Details={
@@ -12,20 +20,21 @@ const Expenseform=()=>{
             date: new Date(enterdate)
 
         }
-        console.log(Details.title);
-        console.log(Details.amount);
-        console.log(Details.date);
+        // console.log(Details.title);
+        // console.log(Details.amount);
+        // console.log(Details.date);
+        props.savedata(Details)
+        setitle('');
+        setamount('');
+        setdate('');
+        
 
        
 
     }
 
    
-    //this is multiusestates but now we change in single use states //
-    const[entertitle,setitle]=useState("");
-    const[enteramount,setamount]=useState("");
-    const[enterdate,setdate]=useState("");
-
+    
     //singel usestes usses in object form//
     // const [userInput,setInputUser]=useState({
     //     entertitle:'',
