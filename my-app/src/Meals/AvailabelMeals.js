@@ -1,6 +1,7 @@
 import './AvailabelMeals.css';
 import Card from '../UI/Card';
 import MealItem from './MealItem/MealItem';
+
 const DUMMY_MEALS = [
     {
       id: 'm1',
@@ -34,6 +35,7 @@ const AvailabelMeals=()=>{
     return <section className="meals">
       <Card>
         <ul>
+          
            {Mealslist}
         </ul>
         </Card>
