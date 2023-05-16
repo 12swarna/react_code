@@ -1,0 +1,39 @@
+.column{
+    float: right;
+    
+    margin-left: 150px;
+    margin-right: 150px;
+    
+    
+    
+}
+.row{
+    
+    
+    float: left;
+    margin-left: 500px;
+    
+
+}
+.column p{
+    
+    margin-left: 120px;
+    font-weight: bolder;
+    font-size: larger;
+}
+.para1{
+
+    margin-left: 50px;
+    
+}
+.butto{
+    margin-left: 100px;
+    margin-bottom: 50px;
+}
+
+img :hover{
+    cursor: pointer;
+    box-shadow: 0 10px 10px 10px rgba(0,0,0,0,1);
+    
+}
+
