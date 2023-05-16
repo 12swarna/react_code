@@ -11,7 +11,7 @@ const Cartrender=({cart})=>{
        return  <div  className=" cart_box" key={list.id}>
             <div className="cart_img">
                 <img src={list.imageUrl} alt="noimage"></img>
-                <p>{list.price}</p>
+                <p>{list.location}</p>
 
             </div>
             <div>
