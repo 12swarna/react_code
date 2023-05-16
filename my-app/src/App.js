@@ -1,38 +1,42 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Heading from './Componentsecondfolder/HeaderPart/Heading';
+import DataShow from './Componentsecondfolder/HeaderPart/DataShow';
+import { useState } from 'react';
+import Cartrender from './Componentsecondfolder/Cartwork/Cartrender';
 
-// Components for different "pages"
-const Home = () => <h1>Welcome to the Home Page!</h1>;
-const About = () => <h1>About Us</h1>;
-const Contact = () => <h1>Contact Us</h1>;
+function App(){
+  const[show,setshow]=useState(true);
+  const[cart,setCart]=useState([]);
+  const[warning,setwarning]=useState(false);
+  
 
-const App = () => {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
+  const cartHandler=(list)=>{
+    let ispresent=false;
+    cart.forEach((product)=>{
+      if(list.id === product.id)
+      ispresent=true;
+    })
+    if(ispresent){
+    setwarning(true);
+    setTimeout(()=>{
+      setwarning(false);
+    },2000)
+    return;
+  }
+    setCart([...cart,list]);
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-};
-
+  }
+  return(
+    <>
+    <Heading size={cart.length} setshow={setshow}></Heading>
+    {
+      show ?<DataShow  cartHandler={ cartHandler}></DataShow>: <Cartrender cart={cart} setCart={setCart}></Cartrender>
+    }
+    
+    {
+      warning && <div className="warning">Item is already added to your cart</div>
+    }
+    </>
+  )
+}
 export default App;
