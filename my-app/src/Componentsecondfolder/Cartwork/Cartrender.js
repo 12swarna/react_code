@@ -3,6 +3,7 @@ import './Cart.css';
 
 const Cartrender=({cart})=>{
     const[price,setprice]=useState(0);
+
     
     return(
         <article>
