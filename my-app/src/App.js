@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Cartrender from './Componentsecondfolder/Cartwork/Cartrender';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Aboutpage from './Componentsecondfolder/HeaderPart/Aboutus';
+import Homepage from './Componentsecondfolder/HeaderPart/Homepage';
 
 
 function App(){
@@ -41,6 +42,7 @@ function App(){
       <Cartrender cart={cart} ></Cartrender> }> </Route>
 
       <Route path='/about' element={<Aboutpage ></Aboutpage>}> </Route>
+      <Route path='/home' element={<Homepage></Homepage>}> </Route>
     </Routes>
    
     
