@@ -1,14 +1,16 @@
 
 import './App.css';
 import Movielist from './Component1/Movielist';
-import { Fragment ,useState} from 'react';
+import { Fragment ,useState,useEffect, useCallback} from 'react';
 
 function App() {
   const[movies,setmovies]=useState([]);
   const[isloading,setisloading]=useState(false);
   const[error,seterror]=useState(null)
 
- async function fetchHandler(){
+
+
+ const fetchHandler=useCallback(async()=>{
   
   setisloading(true);
   seterror(null);
@@ -34,7 +36,7 @@ function App() {
           releaseDate: moviedata.release_date
 
         }
-      });
+   });
       setmovies(transormData);
       
       
@@ -44,7 +46,14 @@ function App() {
     }
     setisloading(false);
     
-  }
+  },[])
+
+
+
+  useEffect(()=>{
+    fetchHandler();
+
+  },[fetchHandler])
 
   let content=<p>found no movies...</p>
 
@@ -62,8 +71,8 @@ function App() {
    if(isloading){
     content=<h1>loading...</h1>
    }
-  
 
+  
 
   
 
@@ -75,7 +84,6 @@ function App() {
       </section>
       <section>
        {content}
-        
       </section>
 
     
