@@ -2,6 +2,7 @@
 import './App.css';
 import Movielist from './Component1/Movielist';
 import { Fragment ,useState,useEffect, useCallback} from 'react';
+import MovieForm from './Component1/MovieForm';
 
 function App() {
   const[movies,setmovies]=useState([]);
@@ -80,7 +81,8 @@ function App() {
   return (
     <Fragment>
       <section>
-        <button onClick={fetchHandler} >Fetch movies</button>
+        <MovieForm></MovieForm>
+         <button className='but' onClick={fetchHandler} >Fetch movies</button> 
       </section>
       <section>
        {content}
