@@ -6,6 +6,11 @@ import Cartrender from './Componentsecondfolder/Cartwork/Cartrender';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Aboutpage from './Componentsecondfolder/HeaderPart/Aboutus';
 import Homepage from './Componentsecondfolder/HeaderPart/Homepage';
+import Contact from './Componentsecondfolder/HeaderPart/Contactus';
+
+
+
+
 
 
 function App(){
@@ -30,6 +35,13 @@ function App(){
     setCart([...cart,list]);
 
   }
+
+
+
+
+
+
+
   return(
     <Router>
     <Heading size={cart.length} setshow={setshow}></Heading>
@@ -43,12 +55,14 @@ function App(){
 
       <Route path='/about' element={<Aboutpage ></Aboutpage>}> </Route>
       <Route path='/home' element={<Homepage></Homepage>}> </Route>
+      <Route path='/contact' element={<Contact></Contact>}></Route>
     </Routes>
    
     
     {
       warning && <div className="warning">Item is already added to your cart</div>
     }
+    
     </Router>
   )
 }
